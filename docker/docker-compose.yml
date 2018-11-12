@@ -1,0 +1,16 @@
+#nginx
+nginx:
+	image: nginx:latest
+	ports:
+		- "80:80"
+	ports:
+		- "443:443"
+
+#mariadb
+mariadb:
+	image: mariadb
+
+#serverside
+serverside:
+	image: centos:latest
+
