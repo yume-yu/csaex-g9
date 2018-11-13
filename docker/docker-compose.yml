@@ -1,10 +1,12 @@
 #nginx
 nginx:
   image: nginx:latest
+  volumes:
+    - "{directry}:/usr/share/nginx/html"
+  volumes:
+    - "nginx/logs:/Users/yume_yu/docker/nginx/log"
   ports:
     - "80:80"
-  ports:
-    - "443:443"
 
 #mariadb
 mariadb:
