@@ -4,7 +4,7 @@ nginx:
   volumes:
     - "{directry}:/usr/share/nginx/html"
   volumes:
-    - "nginx/logs:/Users/yume_yu/docker/nginx/log"
+    - "docker/nginx/logs:/Users/yume_yu/docker/nginx/log"
   ports:
     - "80:80"
 
