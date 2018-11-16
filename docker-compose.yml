@@ -1,6 +1,6 @@
 #nginx
 nginx:
-	image: centos:latest
+	build: ./dockerfiles/nginx/
   volumes:
     - "{directry}:/usr/share/nginx/html"
   volumes:
