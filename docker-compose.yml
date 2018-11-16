@@ -1,6 +1,6 @@
 #nginx
 nginx:
-  image: nginx:latest
+	image: centos:latest
   volumes:
     - "{directry}:/usr/share/nginx/html"
   volumes:
@@ -10,9 +10,18 @@ nginx:
 
 #mariadb
 mariadb:
-  image: mariadb
+	image: centos:latest
 
-#serverside
-serverside:
+#adminer
+adminer:
+	image: centos:latest
+  ports:
+    - "8080:8080"
+
+#python
+python:
   image: centos:latest
 
+#LDAP
+ldap:
+  image: centos:latest
