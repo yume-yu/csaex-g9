@@ -10,18 +10,19 @@ nginx:
 
 #mariadb
 mariadb:
-	image: centos:latest
+	build: ./dockerfiles/mariadb/
 
 #adminer
 adminer:
-	image: centos:latest
+	build: ./dockerfiles/adminer/
   ports:
     - "8080:8080"
 
 #python
 python:
-  image: centos:latest
+	build: ./dockerfiles/python/
 
 #LDAP
 ldap:
-  image: centos:latest
+	build: ./dockerfiles/ldap/
+
