@@ -1,28 +1,29 @@
 #nginx
 nginx:
-	build: ./dockerfiles/nginx/
+  build: ./dockerfiles/nginx/
   volumes:
-    - "{directry}:/usr/share/nginx/html"
-  volumes:
-    - "docker/nginx/logs:/Users/yume_yu/docker/nginx/log"
+    #コンテンツ部分
+    - "./web:/usr/share/nginx/html"
+    #ログディレクトリ
+    - "./dockerfiles/nginx/logs:/Users/yume_yu/docker/nginx/log"
   ports:
     - "80:80"
 
 #mariadb
 mariadb:
-	build: ./dockerfiles/mariadb/
+  build: ./dockerfiles/mariadb/
 
 #adminer
 adminer:
-	build: ./dockerfiles/adminer/
+  build: ./dockerfiles/adminer/
   ports:
     - "8080:8080"
 
 #python
 python:
-	build: ./dockerfiles/python/
+  build: ./dockerfiles/python/
 
 #LDAP
 ldap:
-	build: ./dockerfiles/ldap/
+  build: ./dockerfiles/ldap/
 
