@@ -12,6 +12,7 @@ nginx:
 #mariadb
 mariadb:
   build: ./dockerfiles/mariadb/
+  privileged: true
 
 #adminer
 adminer:
