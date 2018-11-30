@@ -12,4 +12,3 @@ RUN systemctl enable mariadb
 #CMD ["/start_mariadb.sh","&&","less /dev/null"]
 CMD ["/sbin/init"]
 
-EXPOSE 3306
