@@ -5,9 +5,11 @@ FROM centos:latest
 MAINTAINER yume_yu <c0116248c3@edu.teu.ac.jp>
 
 #ビルド時に実行されるコマンド
-CMD curl -sS https://downloads.mariadb.com/MariaDB/mariadb_repo_setup |  bash
-CMD yum install MariaDB-server MariaDB-client
-CMD systemctl enable mariadb
+RUN curl -sS https://downloads.mariadb.com/MariaDB/mariadb_repo_setup |  bash
+RUN yum install -y MariaDB-server MariaDB-client
+RUN systemctl enable mariadb
 
-#RUNしたときに実行されるコマンド
-RUN /sbin/init
+#CMD ["/start_mariadb.sh","&&","less /dev/null"]
+CMD ["/sbin/init"]
+
+EXPOSE 3306

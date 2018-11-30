@@ -17,8 +17,13 @@ services:
 #mariadb
   mariadb:
     build: ./dockerfiles/mariadb/
+    volumes:
+      #コンテンツ部分
+      - "./database_dir:/var/lib/mysql"
+    ports:
+      - "3306:3306"
     privileged: true
-    restart: always
+    #restart: always
 
 #adminer
   adminer:
