@@ -42,8 +42,19 @@ services:
         ipv4_address: 172.30.0.4
 
 #python
-  python:
-    build: ./dockerfiles/python/
+  api:
+    build: ./dockerfiles/api/
+    volumes:
+      - "./python:/home/python"
+    ports:
+      - "5000:5000/udp"
+      - "5000:5000"
+    depends_on:
+      - mariadb
+    networks:
+      app_net:
+        ipv4_address: 172.30.0.4
+
 
 #LDAP
   ldap:
