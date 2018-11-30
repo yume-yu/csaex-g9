@@ -57,8 +57,8 @@ services:
 
 
 #LDAP
-  ldap:
-    build: ./dockerfiles/ldap/
+# ldap:
+#   build: ./dockerfiles/ldap/
 
 networks:
   app_net:
