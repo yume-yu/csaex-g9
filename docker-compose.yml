@@ -1,0 +1,69 @@
+version: '2'
+services:
+#nginx
+  nginx:
+    build: ./dockerfiles/nginx/
+    volumes:
+      #コンテンツ部分
+      - "./web:/usr/share/nginx/html"
+      #ログディレクトリ
+      - "./dockerfiles/nginx/logs:/Users/yume_yu/docker/nginx/log"
+    ports:
+      - "80:80"
+    depends_on:
+      - mariadb
+    networks:
+      app_net:
+        ipv4_address: 172.30.0.2
+
+#mariadb
+#データベースは本来別サーバーに置くので開発環境のみの対応
+  mariadb:
+    build: ./dockerfiles/mariadb/
+    volumes:
+      #コンテンツ部分
+      - "./database_dir:/var/lib/mysql"
+    ports:
+      - "3306:3306"
+    privileged: true
+    #restart: always
+    networks:
+      app_net:
+        ipv4_address: 172.30.0.3
+
+#adminer
+  adminer:
+    build: ./dockerfiles/adminer/
+    ports:
+      - "8080:80"
+    privileged: true
+    networks:
+      app_net:
+        ipv4_address: 172.30.0.4
+
+#python
+  api:
+    build: ./dockerfiles/api/
+    volumes:
+      - "./python:/home/python"
+    ports:
+      - "5000:5000/udp"
+      - "5000:5000"
+    depends_on:
+      - mariadb
+    networks:
+      app_net:
+        ipv4_address: 172.30.0.5
+
+
+#LDAP
+# ldap:
+#   build: ./dockerfiles/ldap/
+
+networks:
+  app_net:
+    driver: bridge
+    ipam:
+     driver: default
+     config:
+       - subnet: 172.30.0.0/24
