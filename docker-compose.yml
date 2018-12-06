@@ -2,7 +2,7 @@ version: '2'
 services:
 #nginx
   nginx:
-    build: ./dockerfiles/nginx/
+    image: yumatchang/csaex-g9:nginx
     volumes:
       #コンテンツ部分
       - "./web:/usr/share/nginx/html"
@@ -19,7 +19,7 @@ services:
 #mariadb
 #データベースは本来別サーバーに置くので開発環境のみの対応
   mariadb:
-    build: ./dockerfiles/mariadb/
+    image: yumatchang/csaex-g9:mariadb
     volumes:
       #コンテンツ部分
       - "./database_dir:/var/lib/mysql"
@@ -33,7 +33,7 @@ services:
 
 #adminer
   adminer:
-    build: ./dockerfiles/adminer/
+    image: yumatchang/csaex-g9:adminer
     ports:
       - "8080:80"
     privileged: true
@@ -55,10 +55,13 @@ services:
       app_net:
         ipv4_address: 172.30.0.5
 
-
 #LDAP
-# ldap:
-#   build: ./dockerfiles/ldap/
+  ldap:
+    build: ./dockerfiles/ldap/
+
+#zabbix
+  zabbix:
+    build: ./dockerfiles/zabbix/
 
 networks:
   app_net:
