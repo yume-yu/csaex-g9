@@ -23,6 +23,7 @@ services:
     volumes:
       #コンテンツ部分
       - "./database_dir:/var/lib/mysql"
+      - "./zabbix-server-mysql-3.4.15:/tmp/zabbix"
     ports:
       - "3306:3306"
     privileged: true
@@ -55,13 +56,22 @@ services:
       app_net:
         ipv4_address: 172.30.0.5
 
-#LDAP
-  ldap:
-    build: ./dockerfiles/ldap/
-
 #zabbix
-  zabbix:
-    build: ./dockerfiles/zabbix/
+#  zabbix:
+#    build: ./dockerfiles/zabbix/
+#    privileged: true
+#    ports:
+#      - "8888:80"
+#      - "10051:10051"
+#    depends_on:
+#      - mariadb
+#    networks:
+#      app_net:
+#        ipv4_address: 172.30.0.5
+        #
+#LDAP
+#  ldap:
+#    build: ./dockerfiles/ldap/
 
 networks:
   app_net:
