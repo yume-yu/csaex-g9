@@ -16,6 +16,8 @@ COPY php.ini /etc/opt/remi/php73/php.ini
 RUN yum install -y zabbix-server-mysql zabbix-web-mysql zabbix-agent zabbix-web-japanese
 #zabbixのwebページのディレクトリのシンボリックリンクをdocument_rootに作成
 RUN ln -s /usr/share/zabbix /var/www/zabbix
+COPY zabbix_server.conf /etc/zabbix/zabbix_server.conf
+COPY zabbix_agentd.conf /etc/zabbix/zabbix_agentd.conf
 RUN systemctl enable nginx
 RUN systemctl enable php73-php-fpm
 RUN systemctl enable zabbix-server
