@@ -5,7 +5,7 @@ FROM python:latest
 MAINTAINER yume_yu <c0116248c3@edu.teu.ac.jp>
 
 #ビルド時に実行されるコマンド
-RUN pip install flask pymysql
+RUN pip install flask pymysql ldap3
 #ポート開放
 EXPOSE 5000
 
