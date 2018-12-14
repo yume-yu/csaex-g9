@@ -1,0 +1,15 @@
+dn: uid=c0116999xx,ou=People,dc=group9,dc=local
+objectClass: inetOrgPerson
+sn: Koka
+cn: Taro
+uid: c0116999xx
+userPassword: qwertyuiop
+
+dn: uid=c0116998yy,ou=People,dc=group9,dc=local
+objectClass: inetOrgPerson
+sn: Koka
+cn: Hanako
+uid: c0116998yy
+userPassword: asdfghjkl
+displayName: KokaHanako
+

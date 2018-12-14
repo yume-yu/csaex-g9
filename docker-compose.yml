@@ -89,8 +89,14 @@ services:
         ipv4_address: 172.30.0.7
 
 #LDAP
-#  ldap:
-#    build: ./dockerfiles/ldap/
+  ldap:
+    build: ./dockerfiles/ldap/
+    privileged: true
+    ports:
+      #volumes:
+      #- "./openldap:/etc/openldap"
+    ports:
+      - "389:389"
 
 networks:
   app_net:
