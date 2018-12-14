@@ -90,7 +90,7 @@ services:
 
 #LDAP
   ldap:
-    build: ./dockerfiles/ldap/
+    image: yumatchang/csaex-g9:ldap
     privileged: true
     ports:
       #volumes:
