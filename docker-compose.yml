@@ -57,21 +57,46 @@ services:
         ipv4_address: 172.30.0.5
 
 #zabbix
-#  zabbix:
-#    build: ./dockerfiles/zabbix/
-#    privileged: true
-#    ports:
-#      - "8888:80"
-#      - "10051:10051"
-#    depends_on:
-#      - mariadb
-#    networks:
-#      app_net:
-#        ipv4_address: 172.30.0.5
-        #
+  zabbix:
+    image: yumatchang/csaex-g9:zabbix
+    privileged: true
+    ports:
+      - "8888:80"
+      - "10051:10051"
+    depends_on:
+      - mariadb
+    networks:
+      app_net:
+        ipv4_address: 172.30.0.6
+
+#dockbix-agent
+  dockbix-agent:
+    image: monitoringartist/dockbix-agent-xxl-limited:latest
+    privileged: true
+    restart: unless-stopped
+    environment:
+      - "ZA_Server=172.30.0.0/24,zabbix"
+      - "ZA_ServerActive=zabbix"
+    volumes:
+      - "/:/rootfs"
+      - "/var/run:/var/run"
+    depends_on:
+      - zabbix
+    security_opt:
+      - seccomp:unconfined
+    networks:
+      app_net:
+        ipv4_address: 172.30.0.7
+
 #LDAP
-#  ldap:
-#    build: ./dockerfiles/ldap/
+  ldap:
+    image: yumatchang/csaex-g9:ldap
+    privileged: true
+    ports:
+      #volumes:
+      #- "./openldap:/etc/openldap"
+    ports:
+      - "389:389"
 
 networks:
   app_net:
