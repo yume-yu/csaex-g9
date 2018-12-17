@@ -23,7 +23,6 @@ services:
     volumes:
       #コンテンツ部分
       - "./database_dir:/var/lib/mysql"
-      - "./zabbix-server-mysql-3.4.15:/tmp/zabbix"
     ports:
       - "3306:3306"
     privileged: true
@@ -92,9 +91,9 @@ services:
   ldap:
     image: yumatchang/csaex-g9:ldap
     privileged: true
-    ports:
-      #volumes:
-      #- "./openldap:/etc/openldap"
+    volumes:
+      - "./slapd.d:/etc/openldap/slapd.d"
+      - "./ldap:/var/lib/ldap"
     ports:
       - "389:389"
 

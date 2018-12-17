@@ -13,4 +13,4 @@ COPY add_users.ldif /add_users.ldif
 COPY changedomain.ldif /changedomain.ldif
 RUN chmod +x init.sh
 
-CMD ["/sbin/init"]
+CMD ["./init.sh"]
