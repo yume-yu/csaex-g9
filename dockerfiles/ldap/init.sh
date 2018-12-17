@@ -12,4 +12,4 @@
 #ldapsearch -x -w jikken2018 -D "cn=Manager,dc=group9,dc=local" -b "ou=People,dc=group9,dc=local"
 chown -R ldap:ldap /var/lib/ldap
 chown -R ldap:ldap /etc/openldap/slapd.d
-/sbin/init
+exec /sbin/init

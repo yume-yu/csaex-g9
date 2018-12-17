@@ -23,7 +23,6 @@ services:
     volumes:
       #コンテンツ部分
       - "./database_dir:/var/lib/mysql"
-      - "./zabbix-server-mysql-3.4.15:/tmp/zabbix"
     ports:
       - "3306:3306"
     privileged: true
