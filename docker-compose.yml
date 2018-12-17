@@ -92,8 +92,7 @@ services:
   ldap:
     image: yumatchang/csaex-g9:ldap
     privileged: true
-    ports:
-      volumes:
+    volumes:
       - "./slapd.d:/etc/openldap/slapd.d"
       - "./ldap:/var/lib/ldap"
     ports:
