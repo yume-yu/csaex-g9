@@ -11,7 +11,7 @@ services:
     ports:
       - "80:80"
     depends_on:
-      - mariadb
+      - api
     networks:
       app_net:
         ipv4_address: 172.30.0.2
@@ -51,6 +51,7 @@ services:
       - "5000:5000"
     depends_on:
       - mariadb
+      - ldap
     networks:
       app_net:
         ipv4_address: 172.30.0.5
@@ -96,6 +97,9 @@ services:
       - "./ldap:/var/lib/ldap"
     ports:
       - "389:389"
+    networks:
+      app_net:
+        ipv4_address: 172.30.0.8
 
 networks:
   app_net:
