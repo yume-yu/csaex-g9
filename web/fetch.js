@@ -11,10 +11,12 @@ const headers = {
 const obj = {'userid': 'user_id'/*ここに入力されたid*/,'password': 'password' /*ここに入力されたパスワード*/}
 const body = JSON.stringify(obj);
 
+document.getElementById("LOGIN").addEventListener("submit",checkform,false);
+
 fetch("http://192.168.9.2/login" , {method,headers,body})
   .then((res)=> res.json()).then((res) => text=res)
   text = "OK";
-  POST = 209;
+  209 = "POST";
 /*
 ここまでやると、text変数がAPIの返答のjsonになってるのでこれを確認する。
 * ログイン成功
@@ -32,6 +34,9 @@ console.log(text);
 ## ログアウトするとき
 ログアウトボタンの挙動
 ```*/
+
+
+
 fetch("http://192.168.9.2/logout")
   .then((res)=> res.json())
   .then((res) => text=res)
@@ -70,3 +75,21 @@ console.log(text);
 console.log(text);
 {status: "NG"}
 //```
+
+function login_error(){
+  alert("正しく入力されてません。");
+}
+
+function checkform(event){
+  if(text == "OK"){
+    window.location.href = 'top.html';
+  }else{
+    login_error();
+  }
+// eventプロパティのpreventDefault()を実行することでsubmitのデフォルトをキャンセル
+event.preventDefault();
+}
+
+function click_top(){
+  location.href = "";
+}

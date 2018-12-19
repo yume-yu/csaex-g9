@@ -30,16 +30,33 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarResponsive">
           <ul class="navbar-nav ml-auto">
-            <li class="nav-item active">
+            <li class="nav-item">
               <a class="nav-link" href="top.html">ホーム
                 <span class="sr-only">(current)</span>
               </a>
             </li>
-            <li class="nav-item">
+            <li class="nav-item active">
               <a class="nav-link" href="#">マイページ</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">ログアウト</a>
+              <a class="nav-link" href="#" onclick="logoutclick()">ログアウト</a>
+              <script>
+                var logoutclick = function () {
+                  if(window.confirm("ログアウトしますか？")){
+                    location.href = "index.html";
+                  }else{
+                  }
+
+                }
+
+              </script>
+
+<!--              <script>
+              if(window.confirm("ダウンロードしますか？")){
+                confole.log("downloading");
+              }else{
+              }
+            </script> -->
             </li>
             <!--
             <li class="nav-item">
@@ -66,7 +83,7 @@
             <p>Name</p>
           </h1>
           <div class="list-group">
-            <a href="mypage.html" class="list-group-item">マイページ</a>
+            <a href="#" class="list-group-item">マイページ</a>
             <a href="registration.html" class="list-group-item">商品登録</a>
             <!--
             <a href="#" class="list-group-item">Category 2</a>
@@ -79,9 +96,9 @@
 
         <div class="col-lg-9">
           <br>
-<h1><p>Release Items</p></h1>
+<h1><p>My Items</p></h1>
 
-          <div id="carouselExampleIndicators" class="carousel slide my-4" data-ride="carousel">
+      <!--    <div id="carouselExampleIndicators" class="carousel slide my-4" data-ride="carousel">
 
             <ol class="carousel-indicators">
               <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
@@ -107,7 +124,7 @@
               <span class="carousel-control-next-icon" aria-hidden="true"></span>
               <span class="sr-only">Next</span>
             </a>
-          </div>
+          </div> -->
 
           <div class="row">
 
@@ -118,8 +135,11 @@
                   <h4 class="card-title">
                     <a href="trade.html">関数電卓</a>
                   </h4>
-                  <h5>¥500</h5>
                   <p class="card-text">テストでしか使ってません</p>
+                  <hr>
+                  <a href="registration.html" class="btn btn-success">編集</a>
+                  <a href="#" class="btn btn-success">削除</a>
+                  <a href="trade.html" class="btn btn-success">取引</a>
                 </div>
                 <!--
                 <div class="card-footer">
@@ -135,8 +155,11 @@
                   <h4 class="card-title">
                     <a href="trade.html">微分積分</a>
                   </h4>
-                  <h5>¥500</h5>
                   <p class="card-text">何も書き込まれてない綺麗なものです</p>
+                  <hr>
+                  <a href="registration.html" class="btn btn-success">編集</a>
+                  <a href="#" class="btn btn-success">削除</a>
+                  <a href="trade.html" class="btn btn-success">取引</a>
                 </div>
                 <!--
                 <div class="card-footer">
@@ -152,59 +175,11 @@
                   <h4 class="card-title">
                     <a href="trade.html">LANケーブル</a>
                   </h4>
-                  <h5>¥500</h5>
                   <p class="card-text">新しいもの買ったので売ります</p>
-                </div>
-                <!--
-                <div class="card-footer">
-                  <small class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9734;</small>
-                </div>-->
-              </div>
-            </div>
-
-            <div class="col-lg-4 col-md-6 mb-4">
-              <div class="card h-100">
-                <a href="trade.html"><img class="card-img-top" src="http://placehold.it/700x400" alt=""></a>
-                <div class="card-body">
-                  <h4 class="card-title">
-                    <a href="trade.html">ノート</a>
-                  </h4>
-                  <h5>¥100</h5>
-                  <p class="card-text">線形代数の筆記が書かれてあります。</p>
-                </div>
-                <!--
-                <div class="card-footer">
-                  <small class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9734;</small>
-                </div>-->
-              </div>
-            </div>
-
-            <div class="col-lg-4 col-md-6 mb-4">
-              <div class="card h-100">
-                <a href="trade.html"><img class="card-img-top" src="http://placehold.it/700x400" alt=""></a>
-                <div class="card-body">
-                  <h4 class="card-title">
-                    <a href="trade.html">ハブ</a>
-                  </h4>
-                  <h5>¥5000</h5>
-                  <p class="card-text">実験でよく使います</p>
-                </div>
-                <!--
-                <div class="card-footer">
-                  <small class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9734;</small>
-                </div>-->
-              </div>
-            </div>
-
-            <div class="col-lg-4 col-md-6 mb-4">
-              <div class="card h-100">
-                <a href="trade.html"><img class="card-img-top" src="http://placehold.it/700x400" alt=""></a>
-                <div class="card-body">
-                  <h4 class="card-title">
-                    <a href="trade.html">Python教科書</a>
-                  </h4>
-                  <h5>¥500</h5>
-                  <p class="card-text">Python3の教科書です。</p>
+                  <hr>
+                  <a href="registration.html" class="btn btn-success">編集</a>
+                  <a href="#" class="btn btn-success">削除</a>
+                  <a href="trade.html" class="btn btn-success">取引</a>
                 </div>
                 <!--
                 <div class="card-footer">

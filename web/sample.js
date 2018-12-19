@@ -33,6 +33,7 @@ function create_account_accept(){
 function error_alert(){
   alert("ERROR");
 }
+
 function logout_alert(){
   alert("ログアウトしました。");
 }
