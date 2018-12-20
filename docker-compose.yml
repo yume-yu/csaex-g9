@@ -10,8 +10,6 @@ services:
       - "./dockerfiles/nginx/logs:/Users/yume_yu/docker/nginx/log"
     ports:
       - "80:80"
-    depends_on:
-      - api
     networks:
       app_net:
         ipv4_address: 172.30.0.2
