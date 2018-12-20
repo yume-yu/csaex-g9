@@ -20,52 +20,21 @@
   </head>
 
   <body>
+    <!-- ログインチェック -->
+    <script src="check_auth.js"></script>
 
     <!-- Navigation -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
       <div class="container">
-        <a class="navbar-brand" href="top.html">TEU FreeMarket</a>
+        <a class="navbar-brand" href="index.html">TEU FreeMarket</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarResponsive">
           <ul class="navbar-nav ml-auto">
             <li class="nav-item">
-              <a class="nav-link" href="top.html">ホーム
-                <span class="sr-only">(current)</span>
-              </a>
+              <a class="nav-link" href="login.html" >ログアウト</a>
             </li>
-            <li class="nav-item active">
-              <a class="nav-link" href="#">マイページ</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#" onclick="logoutclick()">ログアウト</a>
-              <script>
-                var logoutclick = function () {
-                  if(window.confirm("ログアウトしますか？")){
-                    location.href = "index.html";
-                  }else{
-                  }
-
-                }
-
-              </script>
-
-<!--              <script>
-              if(window.confirm("ダウンロードしますか？")){
-                confole.log("downloading");
-              }else{
-              }
-            </script> -->
-            </li>
-            <!--
-            <li class="nav-item">
-              <a class="nav-link" href="#">Services</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Contact</a>
-            </li>
-          -->
           </ul>
         </div>
       </div>
@@ -80,15 +49,11 @@
 
           <h1 class="my-4">
             <!--<a href="#"><img class="card-img-top" src="images/unknown.png" alt=""></a>-->
-            <p>Name</p>
+            <p id="yourname"></p>
           </h1>
           <div class="list-group">
             <a href="#" class="list-group-item">マイページ</a>
             <a href="registration.html" class="list-group-item">商品登録</a>
-            <!--
-            <a href="#" class="list-group-item">Category 2</a>
-            <a href="#" class="list-group-item">Category 3</a>
-          -->
           </div>
 
         </div>
@@ -96,97 +61,9 @@
 
         <div class="col-lg-9">
           <br>
-<h1><p>My Items</p></h1>
+<h1><p>Your Items</p></h1>
 
-      <!--    <div id="carouselExampleIndicators" class="carousel slide my-4" data-ride="carousel">
-
-            <ol class="carousel-indicators">
-              <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-              <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-              <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-            </ol>
-            <div class="carousel-inner" role="listbox">
-              <div class="carousel-item active">
-                <a href="trade.html"><img class="d-block img-fluid" src="http://placehold.it/900x350" alt="First slide"></a>
-              </div>
-              <div class="carousel-item">
-                <a href="trade.html"><img class="d-block img-fluid" src="http://placehold.it/900x350" alt="Second slide"></a>
-              </div>
-              <div class="carousel-item">
-                <a href="trade.html"><img class="d-block img-fluid" src="http://placehold.it/900x350" alt="Third slide"></a>
-              </div>
-            </div>
-            <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-              <span class="sr-only">Previous</span>
-            </a>
-            <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-              <span class="carousel-control-next-icon" aria-hidden="true"></span>
-              <span class="sr-only">Next</span>
-            </a>
-          </div> -->
-
-          <div class="row">
-
-            <div class="col-lg-4 col-md-6 mb-4">
-              <div class="card h-100">
-                <a href="trade.html"><img class="card-img-top" src="http://placehold.it/700x400" alt=""></a>
-                <div class="card-body">
-                  <h4 class="card-title">
-                    <a href="trade.html">関数電卓</a>
-                  </h4>
-                  <p class="card-text">テストでしか使ってません</p>
-                  <hr>
-                  <a href="registration.html" class="btn btn-success">編集</a>
-                  <a href="#" class="btn btn-success">削除</a>
-                  <a href="trade.html" class="btn btn-success">取引</a>
-                </div>
-                <!--
-                <div class="card-footer">
-                  <small class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9734;</small>
-                </div>-->
-              </div>
-            </div>
-
-            <div class="col-lg-4 col-md-6 mb-4">
-              <div class="card h-100">
-                <a href="trade.html"><img class="card-img-top" src="http://placehold.it/700x400" alt=""></a>
-                <div class="card-body">
-                  <h4 class="card-title">
-                    <a href="trade.html">微分積分</a>
-                  </h4>
-                  <p class="card-text">何も書き込まれてない綺麗なものです</p>
-                  <hr>
-                  <a href="registration.html" class="btn btn-success">編集</a>
-                  <a href="#" class="btn btn-success">削除</a>
-                  <a href="trade.html" class="btn btn-success">取引</a>
-                </div>
-                <!--
-                <div class="card-footer">
-                  <small class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9734;</small>
-                </div>-->
-              </div>
-            </div>
-
-            <div class="col-lg-4 col-md-6 mb-4">
-              <div class="card h-100">
-                <a href="trade.html"><img class="card-img-top" src="http://placehold.it/700x400" alt=""></a>
-                <div class="card-body">
-                  <h4 class="card-title">
-                    <a href="trade.html">LANケーブル</a>
-                  </h4>
-                  <p class="card-text">新しいもの買ったので売ります</p>
-                  <hr>
-                  <a href="registration.html" class="btn btn-success">編集</a>
-                  <a href="#" class="btn btn-success">削除</a>
-                  <a href="trade.html" class="btn btn-success">取引</a>
-                </div>
-                <!--
-                <div class="card-footer">
-                  <small class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9734;</small>
-                </div>-->
-              </div>
-            </div>
+          <div id="itemsrow" class="row">
 
           </div>
           <!-- /.row -->
@@ -211,7 +88,8 @@
     <!-- Bootstrap core JavaScript -->
     <script src="vendor/jquery/jquery.min.js"></script>
     <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-    <script src="sample.js"></script>
+    <script src="mypagescript.js"></script>
+    <script src="logoutscript.js"></script>
 
   </body>
 
