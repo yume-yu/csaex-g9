@@ -67,20 +67,115 @@ def logout():
   session.pop('displayName', None)  #同上
   return jsonify({'status':'OK'})
 
+#商品登録
+@app.route('/insertItem',methods=["POST"])
+def Insert():
+  #受け取ったのがjsonかどうか確認
+  if request.headers['Content-Type'] != 'application/json':
+    print(request.headers['Content-Type'])
+    return flask.jsonify(res='error'), 400 # jsonでなければエラーを返す
+
+
+  try:
+    db = getConnection()
+    cur = db.cursor()
+    check_count = "select count(*) from Products"
+    cur.execute(check_count)
+    count_data = cur.fetchall()
+    print(count_data);
+    now_count = count_data[0]['count(*)']
+    cur.close()
+    cur = db.cursor()
+    sql = "INSERT INTO Products VALUES ("+str(now_count+1)+",'"+request.json["name"]+"','"+request.json["descript"]+"','"+request.json["image"]+"','"+str(request.json["owner"])+"');"
+    print(sql)
+    cur.execute(sql)
+    db.commit()
+    Items = cur.fetchall()
+
+
+    cur.close()
+    db.close()
+  except:
+    return jsonify({'status':'NG'})
+
+  return jsonify({'status':'OK'})
+
+#商品削除
+@app.route('/deleteItem',methods=["POST"])
+def Delete():
+  #受け取ったのがjsonかどうか確認
+  if request.headers['Content-Type'] != 'application/json':
+    print(request.headers['Content-Type'])
+    return flask.jsonify(res='error'), 400 # jsonでなければエラーを返す
+
+  try:
+    db = getConnection()
+    cur = db.cursor()
+    sql = "update Products set active = 0 WHERE id = "+request.json["id"]+";"
+    print(sql)
+    cur.execute(sql)
+
+    db.commit()
+
+    cur.close()
+    db.close()
+
+    return jsonify({
+    'status':'OK'
+    })
+
+  except:
+     return jsonify({
+     'status':'NG'
+     })
+
+#データベース内容閲覧(詳細)
+@app.route('/')
+def Default():
+  try:
+    #データベースに接続
+    db = getConnection()
+
+    #操作方法(カーソル)を指定
+    cur = db.cursor()
+
+    #SQL文(メインステップ)
+    sql = "SELECT count(*) FROM Products"
+
+    #カーソルに対しSQL文実行
+    cur.execute(sql)
+
+    #フェッチ
+    members = cur.fetchall()
+
+
+    print(members[0]['count(*)'])
+    #カーソル、データベースを閉じる
+    cur.close()
+    db.close()
+
+    #jsonで返答
+    return jsonify({'status':'OK','members':members})
+
+  #catch相当
+  except:
+    return jsonify({'status':'NG'})
+
+
 #データベースに接続する設定の汎用化
 def getConnection():
-    try:
-        db=pymysql.connect(
-        host='mariadb',
-        user='api_user',
-        password='jikken2018',
-        db='TeuFreeMarket',
-        charset='utf8',
-        cursorclass=pymysql.cursors.DictCursor,
-        )
-    except:
-        print('can not Connect DB')
-    return db
+  try:
+    db=pymysql.connect(
+    host='mariadb',
+    user='api_user',
+    password='jikken2018',
+    db='TeuFreeMarket',
+    charset='utf8',
+    cursorclass=pymysql.cursors.DictCursor,
+    )
+  except:
+    print('can not Connect DB')
+  return db
 
 @app.route('/test')
 def check_move():
