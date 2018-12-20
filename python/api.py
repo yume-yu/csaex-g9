@@ -35,7 +35,7 @@ def login():
   #受け取ったのがjsonかどうか確認
   if request.headers['Content-Type'] != 'application/json':
     print(request.headers['Content-Type'])
-    return flask.jsonify(res='error'), 400 # jsonでなければエラーを返す
+    return jsonify(res='error'), 400 # jsonでなければエラーを返す
 
   try:
     #必要なデータの取り出し

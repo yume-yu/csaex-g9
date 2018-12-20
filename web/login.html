@@ -57,14 +57,14 @@
 	</div>
 
   <div class="m-0 text-center text-black flex flex-center">
-    <form autocomplete="off" method="POST">
+    <form autocomplete="off" onsubmit="login(); return false;" name="loginform" method="POST">
       <table class="form" border="0">
         <tr>
           <th>
             <h3><p>UserID</p></h3>
           </th>
           <td>
-            <p><input type="text" placeholder="学籍番号+2ケタ" pattern="[cmeb][0-9]{7}.{2}" name="user_id" value="" size="30" required></p>
+            <p><input type="text" placeholder="学籍番号+2ケタ" pattern="[cmeb][0-9]{7}.{2}" name="userid" value="" size="30" required></p>
           </td>
         </tr>
         <tr>
@@ -97,7 +97,7 @@
 	    <!-- Bootstrap core JavaScript -->
 	    <script src="vendor/jquery/jquery.min.js"></script>
 	    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-			<script src="fetch.js"></script>
+			<script src="loginscript.js"></script>
 
 	  </body>
 
