@@ -121,13 +121,11 @@ def Delete():
     db.close()
 
     return jsonify({
-    'status':'OK'
-    })
+      'status':'OK'
+      })
 
   except:
-     return jsonify({
-     'status':'NG'
-     })
+    return jsonify({'status':'NG'})
 
 #データベース内容閲覧(詳細)
 @app.route('/')

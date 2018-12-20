@@ -1,4 +1,4 @@
-function add_item(title,price,descript){
+function add_item(title,price,descript,productid){
   let newItem = document.createElement('div');
   newItem.setAttribute("class","col-lg-4 col-md-6 mb-4");
   let newCard = document.createElement('div');
@@ -28,7 +28,8 @@ function add_item(title,price,descript){
   let hr = document.createElement('hr');
   itemCard.appendChild(hr);
   let deleteBtn = document.createElement('a');
-  deleteBtn.setAttribute("class","btn btn-success");
+  deleteBtn.setAttribute("class","btn btn-success delete-btn");
+  deleteBtn.setAttribute("id",productid);
   deleteBtn.setAttribute("href","#");
   deleteBtn.style.marginRight = "10px";
   deleteBtn.textContent = "削除";
@@ -56,12 +57,25 @@ document.addEventListener("DOMContentLoaded", function(){
           let fragment = document.createDocumentFragment();
           for(item of res["items"]){
             if(item.active == 1){
-              fragment.appendChild(add_item(item.name,item.price,item.description));
+              fragment.appendChild(add_item(item.name,item.price,item.description,item.id));
             }
           }
           document.getElementById("itemsrow").appendChild(fragment);
+          let deleteBtns = document.getElementsByClassName("delete-btn");
+          console.log(deleteBtns.length);
+          for(btn of deleteBtns){
+            console.log(btn);
+            btn.addEventListener("click",function(){
+              obj = {"id":btn.id};
+              body = JSON.stringify(obj);
+              fetch(APIURL+"/delete" , {method,headers,body}).then((res)=> res.json()).then((res) => {
+                location.reload();
+              });
+            });
+          }
         }
-      })
+      });
     }
+    });
   });
-});
+
