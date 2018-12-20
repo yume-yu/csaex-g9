@@ -1,4 +1,4 @@
-﻿/*!
+/*!
  * Start Bootstrap - Shop Homepage (https://startbootstrap.com/template-overviews/shop-homepage)
  * Copyright 2013-2017 Start Bootstrap
  * Licensed under MIT (https://github.com/BlackrockDigital/startbootstrap-shop-homepage/blob/master/LICENSE)
@@ -16,45 +16,26 @@ body {
 
 p{
   font-family:'Teko', sans-serif;
-
 }
 
-
-/*
-#form4{
-position:relative;
-max-width:100px;
-margin-bottom:20px;
-}
-#sbox4{
-height:10px;
-padding:0 10px;
-position:absolute;
-left:0;
-top:0;
-border-radius:25px;
-outline:0;
-background:#eee;
-}
-#sbtn4{
-height:50px;
-width:50px;
-position:absolute;
-left:250px;
-top:0;
-background:#7fbfff;
-color:#fff;
-border:none;
-border-radius:0 25px 25px 0;
+.flex {
+  display:flex;
 }
 
-#sbtn4 .fa-search{
-font-size:20px;
-position:absolute;
-top:30%;
-left:30%;
+.flex-center{
+  justify-content: center;
 }
-#sbtn4:hover{
-color:#888;
+
+.flex-center p {
+  text-align: left;
+  padding-right: 10px;
 }
-検索ボックス*/
+
+table.form {
+  margin-top: 35px;
+  margin-bottom: 35px;
+}
+
+tr.login-btn {
+  text-align: center;
+}
