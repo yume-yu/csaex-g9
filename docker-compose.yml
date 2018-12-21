@@ -2,7 +2,8 @@ version: '2'
 services:
 #nginx
   nginx:
-    image: yumatchang/csaex-g9:nginx
+    #image: yumatchang/csaex-g9:nginx
+    build: ./dockerfiles/nginx
     volumes:
       #コンテンツ部分
       - "./web:/usr/share/nginx/html"

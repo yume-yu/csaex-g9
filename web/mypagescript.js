@@ -64,7 +64,7 @@ document.addEventListener("DOMContentLoaded", function(){
           let deleteBtns = document.getElementsByClassName("delete-btn");
           console.log(deleteBtns.length);
           for(btn of deleteBtns){
-            console.log(btn);
+            console.log(btn.id);
             btn.addEventListener("click",function(){
               obj = {"id":btn.id};
               body = JSON.stringify(obj);
@@ -76,6 +76,6 @@ document.addEventListener("DOMContentLoaded", function(){
         }
       });
     }
-    });
   });
+});
 

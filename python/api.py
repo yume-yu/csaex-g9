@@ -74,25 +74,14 @@ def Insert():
   if request.headers['Content-Type'] != 'application/json':
     print(request.headers['Content-Type'])
     return flask.jsonify(res='error'), 400 # jsonでなければエラーを返す
-
-
   try:
     db = getConnection()
     cur = db.cursor()
-    check_count = "select count(*) from Products"
-    cur.execute(check_count)
-    count_data = cur.fetchall()
-    print(count_data);
-    now_count = count_data[0]['count(*)']
-    cur.close()
-    cur = db.cursor()
-    sql = "INSERT INTO Products VALUES ("+str(now_count+1)+",'"+request.json["name"]+"','"+request.json["descript"]+"','"+request.json["image"]+"','"+str(request.json["owner"])+"');"
+    sql = "INSERT INTO Products (name,price,description,owner) VALUES ('"+request.json["name"]+"',"+request.json["price"]+",'"+request.json["descript"]+"','"+str(request.json["owner"])+"');"
     print(sql)
     cur.execute(sql)
     db.commit()
     Items = cur.fetchall()
-
-
     cur.close()
     db.close()
   except:
@@ -205,6 +194,8 @@ def search_in_products():
   else:
     sql = sql + add_WA(is_first_arg)
     sql = sql + "name LIKE '%"+str(productname)+"%'"
+
+  sql = sql + " ORDER BY id DESC"
 
   limit = 50 #検索上限値のデフォルト50
   try:

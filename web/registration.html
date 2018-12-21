@@ -20,11 +20,11 @@
   </head>
 
   <body>
-
+    <script src="check_auth.js"></script>
     <!-- Navigation -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
       <div class="container">
-        <a class="navbar-brand" href="top.html">TEU FreeMarket</a>
+        <a class="navbar-brand" href="index.html">TEU FreeMarket</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
@@ -33,7 +33,7 @@
 
           <ul class="navbar-nav ml-auto">
             <li class="nav-item active">
-              <a class="nav-link" href="top.html">ホーム
+              <a class="nav-link" href="index.html">ホーム
                 <span class="sr-only">(current)</span>
               </a>
             </li>
@@ -41,7 +41,7 @@
               <a class="nav-link" href="#">マイページ</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">ログアウト</a>
+              <a class="nav-link" href="login.html">ログアウト</a>
             </li>
           </ul>
         </div>
@@ -57,67 +57,42 @@
 
           <h1 class="my-4">
             <!--<a href="#"><img class="card-img-top" src="images/unknown.png" alt=""></a>-->
-            <p>Name</p>
+            <p id="yourname"></p>
           </h1>
           <div class="list-group">
             <a href="#" class="list-group-item">マイページ</a>
             <a href="registration.html" class="list-group-item">商品登録</a>
             <!--
-            <a href="#" class="list-group-item">Category 2</a>
-            <a href="#" class="list-group-item">Category 3</a>
-          -->
+              <a href="#" class="list-group-item">Category 2</a>
+              <a href="#" class="list-group-item">Category 3</a>
+            -->
           </div>
 
         </div>
         <!-- /.col-lg-3 -->
 
         <div class="col-lg-9">
-
-          <div class="card mt-4">
-            <img class="card-img-top" src="http://placehold.it/700x400" alt="">
-
-            <div class="card-body">
-              <p class="card-title">
-                <input type="file" name="pic">
-              </p>
-              <hr>
-              <h3 class="card-title">商品名
-              <p><input type="text" name="user_id" value="" size="30"></p></h3>
-              <hr>
-              <h3 class="card-title">商品コメント
-
-              <p><textarea name="user_comment" rows="4" cols="50%"></textarea></p><h3>
-              <hr>
-              <a href="top.html" class="btn btn-success">商品登録</a>
+          <form name="add_product">
+            <div class="card mt-4">
+              <div class="card-body">
+                <h3 class="card-title">商品名</h3>
+                <input type="text" name="productname" value="" size="30">
+                <hr>
+                <h3 class="card-title">希望価格</h3>
+                <input type="text" name="price" value="" size="30">
+                <hr>
+                <h3 class="card-title">商品コメント</h3>
+                <textarea name="description" rows="4" cols="50%"></textarea>
+                <hr>
+                <input type="submit" class="btn btn-success" value="商品登録">
+              </div>
             </div>
-          </div>
-          <!-- /.card -->
-
-<!--
-          <div class="card card-outline-secondary my-4">
-            <div class="card-header">
-              Product Reviews
-            </div>
-            <div class="card-body">
-              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Omnis et enim aperiam inventore, similique necessitatibus neque non! Doloribus, modi sapiente laboriosam aperiam fugiat laborum. Sequi mollitia, necessitatibus quae sint natus.</p>
-              <small class="text-muted">Posted by Anonymous on 3/1/17</small>
-              <hr>
-              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Omnis et enim aperiam inventore, similique necessitatibus neque non! Doloribus, modi sapiente laboriosam aperiam fugiat laborum. Sequi mollitia, necessitatibus quae sint natus.</p>
-              <small class="text-muted">Posted by Anonymous on 3/1/17</small>
-              <hr>
-              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Omnis et enim aperiam inventore, similique necessitatibus neque non! Doloribus, modi sapiente laboriosam aperiam fugiat laborum. Sequi mollitia, necessitatibus quae sint natus.</p>
-              <small class="text-muted">Posted by Anonymous on 3/1/17</small>
-              <hr>
-              <a href="#" class="btn btn-success">Leave a Review</a>
-            </div>
-          </div>-->
-          <!-- /.card -->
-
+          </form>
         </div>
         <!-- /.col-lg-9 -->
 
       </div>
-  <br>
+      <br>
     </div>
     <!-- /.container -->
 
@@ -132,7 +107,8 @@
     <!-- Bootstrap core JavaScript -->
     <script src="vendor/jquery/jquery.min.js"></script>
     <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-    <script src="sample.js"></script>
+    <script src="registscript.js"></script>
+    <script src="logoutscript.js"></script>
 
   </body>
 
